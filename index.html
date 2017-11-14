@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>一起来打怪</title>
+	<script type="text/javascript">
+    !function(a,b){function c(){var b=f.getBoundingClientRect().width;b/i>540&&(b=540*i);var c=b/10;f.style.fontSize=c+"px",k.rem=a.rem=c}var d,e=a.document,f=e.documentElement,g=e.querySelector('meta[name="viewport"]'),h=e.querySelector('meta[name="flexible"]'),i=0,j=0,k=b.flexible||(b.flexible={});if(g){console.warn("Set the zoom scale based on the existing meta tags");var l=g.getAttribute("content").match(/initial\-scale=([\d\.]+)/);l&&(j=parseFloat(l[1]),i=parseInt(1/j))}else if(h){var m=h.getAttribute("content");if(m){var n=m.match(/initial\-dpr=([\d\.]+)/),o=m.match(/maximum\-dpr=([\d\.]+)/);n&&(i=parseFloat(n[1]),j=parseFloat((1/i).toFixed(2))),o&&(i=parseFloat(o[1]),j=parseFloat((1/i).toFixed(2)))}}if(!i&&!j){var p=a.navigator.userAgent,q=(!!p.match(/android/gi),!!p.match(/iphone/gi)),r=q&&!!p.match(/OS 9_3/),s=a.devicePixelRatio;i=q&&!r?s>=3&&(!i||i>=3)?3:s>=2&&(!i||i>=2)?2:1:1,j=1/i}if(f.setAttribute("data-dpr",i),!g)if(g=e.createElement("meta"),g.setAttribute("name","viewport"),g.setAttribute("content","initial-scale="+j+", maximum-scale="+j+", minimum-scale="+j+", user-scalable=no"),f.firstElementChild)f.firstElementChild.appendChild(g);else{var t=e.createElement("div");t.appendChild(g),e.write(t.innerHTML)}a.addEventListener("resize",function(){clearTimeout(d),d=setTimeout(c,300)},!1),a.addEventListener("pageshow",function(a){a.persisted&&(clearTimeout(d),d=setTimeout(c,300))},!1),"complete"===e.readyState?e.body.style.fontSize=12*i+"px":e.addEventListener("DOMContentLoaded",function(){e.body.style.fontSize=12*i+"px"},!1),c(),k.dpr=a.dpr=i,k.refreshRem=c,k.rem2px=function(a){var b=parseFloat(a)*this.rem;return"string"==typeof a&&a.match(/rem$/)&&(b+="px"),b},k.px2rem=function(a){var b=parseFloat(a)/this.rem;return"string"==typeof a&&a.match(/px$/)&&(b+="rem"),b}}(window,window.lib||(window.lib={}));
+	</script>
+	<link rel="stylesheet" href="css/normalize.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/base.js"></script>
+</head>
+<body>
+  <div id="slide-box">
+    <section class="bg-page1 enter">
+      <div class="circle1"></div>
+      <div class="bg-star"></div>
+      <div class="star-line"></div>
+      <div class="main-page1">
+        <div class="rocket"></div>
+        <div class="finger"></div>
+        <div class="beat-monster"></div>
+      </div>
+      <div class="progress-bar" id="progress-bar">
+        <span></span><em>0%</em>
+      </div>
+    </section>
+    <section class="bg-page2 hide">
+      <div class="circle-page2"></div>
+        <div class="rocket2"></div>
+        <div class="light"></div>
+        <div class="page2">
+          <div class="human"></div>
+          <div class="start1"></div>
+          <div class="start2"></div>
+          <div class="start3"></div>
+          <div class="start4"></div>
+          <div class="pirate"></div>
+        </div>
+        <div class="text"></div>
+    </section>
+    <section class="bg-page3 hide">
+      <div class="text3"></div>
+      <div class="circle-page3"></div>
+      <div class="start-all"></div>
+      <div class="smork1"></div>
+      <div class="smork2"></div>
+      <div class="rocket3"></div>
+      <div class="page3">
+        <div class="human1"></div>
+        <div class="human2"></div>
+        <div class="human3"></div>
+        <div class="human4"></div>
+        <div class="human5"></div>
+        <div class="pirate2"></div>
+        <div class="meteor"></div>
+      </div>
+    </section>
+    <section class="bg-page4 hide">
+      <div class="circle-page4"></div>
+      <div class="page4">
+        <div class="smork4"></div>
+        <div class="smork5"></div>
+        <div class="rocket4"></div>
+        <button class="btn" id="start">开始游戏</button>
+        <div class="text4"></div>
+      </div>
+    </section>
+    <div class="arrow-up" id="arrow-up"></div>
+    <div class="bg-music bg-music1">
+      <audio id="bgm" preload="auto" loop autoplay src="media/bg.mp3" style="display: none;"></audio>
+    </div>
+  </div>
+  <div id="game-box" style="display: none;"><!--  -->
+    <div class="bg-page4 shake-page">
+      <div class="circle-page4"></div>
+      <div class="start_bg"></div>
+      <canvas id="game-stage" style="position:absolute;"></canvas>
+    </div>
+    <div class="game-state" style="display:none;">
+      <div class="game-state-box" >
+        <div class="score" id="score">0</div>
+        <div class="time-box"><div class="time" id="time">20</div></div>
+        <div class="bg-music bg-music2">
+          <audio loop src="media/music.mp3" preload style="display:none;" id="game-bgm"></audio>
+        </div>
+      </div>
+    </div>
+    <div class="layer-wrapper" id="layer-wrapper">
+      <div class="info-box" id="info-box">
+        <div class="info">  
+          <div class="rule">- 游戏规则 -</div>
+          <div class="game-info">当小怪物飞出来时，请大力猛戳屏幕，瞄准后压扁“小怪物”们！一定要大力哦……</div> 
+        </div>
+        <div class="start-btn" id="start-btn">开始游戏</div>
+        <div class="share-btn" id="share-btn" style="display:none">分享</div>
+        <div class="again-btn" id="again-btn" style="display:none">再来一次</div>
+      </div>
+    </div>
+  </div>
+  <script src="js/jCanvaScript.1.5.18.min.js"></script>
+  <script src="js/monster.js"></script>
+	<script type="text/javascript">
+    
+	</script>
+</body>
+</html> 
+
+
+<!-- 我个人也在开发canvas库 不过当我看到 jCanvaScript 这个库的时候,我放弃了造轮子,因为我想要的语法格式什么的 跟他很相似. 语法很简单, 程序员可以很容易上手,他就是一个canvas方法的封装.只不过增加了事件 拖动机制. 压缩后也就 52k左右.我一开始选择canvas 库的时候, 选择了 Rapha?l kineticjs.我个人认为 在初学的时候,可以选择jcanvasscript进行辅助了解canvas . 等学会了 有必要再去掌握别的时候,原理明白了 也就只有一些语法不同而已 -->
