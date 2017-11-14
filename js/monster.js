@@ -69,7 +69,7 @@ var silde = {
         $('.progress-bar em').html(Math.floor(((imgNum/loadingImgArr.length).toFixed(2)*100))+'%');
         if(imgNum == loadingImgArr.length){
           $('#progress-bar').remove();
-          this.loadFlag = true;
+          silde.loadFlag = true;
         }
       };
     };
@@ -85,9 +85,9 @@ var silde = {
     });
     $(document).on('touchend',function(ev){
       var touches = ev.changedTouches[0];
-      if(downY - touches.pageY > 40 && off && this.loadFlag){
+      if(downY - touches.pageY > 40 && off && silde.loadFlag){
         countPage(-1);
-      }else if(downY - touches.pageY < -40 && off && this.loadFlag){
+      }else if(downY - touches.pageY < -40 && off && silde.loadFlag){
         countPage(1);
       }
     });
