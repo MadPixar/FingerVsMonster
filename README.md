@@ -1,6 +1,6 @@
 # 基于JCanvascript的一款小游戏
 
-------
+---
 
 ### 1.移动端适配
 使用了flexible来进行屏幕适配，尺寸单位用rem，通过sass的函数进行px到rem的转换。
