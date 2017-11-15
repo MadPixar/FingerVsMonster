@@ -3,6 +3,19 @@ var bgm = document.getElementById('bgm');
 var gameBgm = document.getElementById('game-bgm'); 
 document.body.style.opacity = 1;
 document.body.style.backgroundColor = '#243367';
+
+document.addEventListener("WeixinJSBridgeReady", function () {  
+    bgmPlay();  
+}, false);  
+document.addEventListener('YixinJSBridgeReady', function() {  
+    bgmPlay();  
+}, false);  
+
+function bgmPlay() {
+  if(bgm.paused){
+    bgm.play();
+  }
+}
 /*
  * touches：表示当前跟踪的触摸操作的touch对象的数组。
  * targetTouches：特定于事件目标的Touch对象的数组。
